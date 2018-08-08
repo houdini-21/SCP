@@ -1,0 +1,1 @@
+function lol() { alert("I am an alert box!"); } 

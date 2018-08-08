@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SCP - Login</title>
+  <body id="fondo">
+    <div id="page-loader"><span class="preloader-interior"></span></div>
+    <% include partials/head %>
+  </head>
+  <body>
+    <div class="limiter">
+      <div class="container-login100">
+       <div class="tip">
+        <img src="/scp.png" class="img-login">
+        <h5 style="text-align: center;">Crear una cuenta</h5>
+        <form class="col s12 login-form" action="/signup" method="post">
+          <% if (message.length > 0) { %>
+          <div class="alert">
+            <%= message %>
+          </div>
+          <% } %>
+          <div class="row">
+           <div class="row">
+            <div class="input-field col s12">
+             <input type="email" name="email" class="validate">
+             <label for="email">Email</label>
+           </div>
+         </div>
+         <div class="row">
+          <div class="input-field col s12">
+            <input type="password" name="password" class="validate">
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <button class="btn waves-effect waves-light btn-login" type="" onclick="lol()">Crear cuenta</button>
+
+        <div class="login-box">
+          Tienes una cuenta? <a href="/login">Iniciar sesion</a>
+        </div>
+      </div>   
+    </form>
+  </div>
+</div>
+</div>
+
+<script src="../config/lol.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script>
+  $(window).load(function(){
+    $('#page-loader').fadeOut(500);
+
+  });
+</script>
+<script type="text/javascript" src="/funnciones.js"></script>
+</body>
+</html>
