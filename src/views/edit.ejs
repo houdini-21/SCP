@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<% include partials/head %>
+	<title>SCP - Editar Conductor</title>
+</head>
+<body>
+    <div id="page-loader"><span class="preloader-interior"></span></div>
+	<% include partials/navbar %>
+	<center>
+<div class="tock">
+		<div class="tipo">
+			<h5 style="text-align: center;">Editar conductor</h5>
+			<form class="col s12 login-form" action="/edit/<%= task._id %>" method="post">
+				<div class="row">
+					<div class="row">
+						<div class="input-field col s12">
+							<input type="text" name="title" placeholder="Placa" value="<%= task.title %>">
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input type="text" name="title2" placeholder="Conductor" value="<%= task.title2 %>">
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input type="number" name="description"  placeholder="Equipo" value="<%= task.description %>">
+						</div>
+					</div>
+					<button class="btn waves-effect waves-light btn-login" type="submit">Actualizar</button>
+				</div>   
+			</form>
+		</div>
+	</div>
+
+</center>
+</body>
+<% include partials/footer %>
+		<script>
+
+  $(window).load(function(){
+    $('#page-loader').fadeOut(100);
+
+  });
+ 
+</script>
+</html>

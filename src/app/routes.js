@@ -2,9 +2,9 @@ module.exports = (app, passport) => {
 
 	// index routes
 	app.get('/', (req, res) => {
-		res.render('index');
+		res.render('index', {
+		});
 	});
-
 	//login view
 	app.get('/login', (req, res) => {
 		res.render('login.ejs', {
@@ -24,15 +24,18 @@ module.exports = (app, passport) => {
 			message: req.flash('signupMessage')
 		});
 	});
+	app.get('/maps', (req, res) => {
+		res.render('maps')
+	});
 
 app.get('/profile2', isLoggedIn, (req, res) => {
 		res.render('profile2', {
 			user: req.user
 		});
 	});
-app.get('/agregar', isLoggedIn, (req, res) => {
-		res.render('agregar', {
-			user: req.user
+
+app.get('/edit', isLoggedIn, (req, res) => {
+		res.render('edit', {
 		});
 	});
 
@@ -58,9 +61,6 @@ app.get('/tutorial', (req, res) => {
 		res.redirect('/');
 	});
 };
-
-//profile view
-	
 
 function isLoggedIn (req, res, next) {
 	if (req.isAuthenticated()) {

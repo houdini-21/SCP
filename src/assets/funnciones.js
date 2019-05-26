@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
   $('.carousel.carousel-slider').carousel({
    fullWidth: true,
@@ -74,15 +73,75 @@ $('.slidernav2').slick({
 
   $('.parallax').parallax();
   $('.tabs').tabs();
-});
+
+ });
 
 AOS.init({
   duration: 1200,
 })
 
-function day(){
-      body.className='day';
+function validarInput() {
+   $('#pass1').keyup(function() {
+    var pass1 = $('#pass1').val();
+    var pass2 = $('#pass2').val();
+
+    if ( pass1 != pass2 ) {
+        document.getElementById('send').disabled = 'disabled';
+
+                       //document.getElementById("error").style.display = "block";
+
+      return (false)
+    } else {
+            document.getElementById('send').disabled = '';
+                      document.getElementById("send").disabled = !document.getElementById("pass1").value.length;
+
+               //document.getElementById("error").style.display = "none";
+    return (true);
     }
-    function night(){
-      body.className='night';
+});
+ }
+function validarInput2() {
+
+   $('#pass2').keyup(function() {
+    var pass1 = $('#pass1').val();
+    var pass2 = $('#pass2').val();
+
+    if ( pass2 != pass1 ) {
+        document.getElementById('send').disabled = 'disabled';
+
+                       //document.getElementById("error").style.display = "block";
+
+      return (false)
+    } else {
+            document.getElementById('send').disabled = '';
+              document.getElementById("send").disabled = !document.getElementById("pass2").value.length;
+
+               //document.getElementById("error").style.display = "none";
+    return (true);
+    };
+ 
+});
+ }
+window.onload = function() {
+  document.getElementById("formulario").style.display = "none";
+    document.getElementById("tabla").style.display = "block";
+         document.getElementById("formul").style.display = "none";
+    document.getElementById("list").style.display = "block";
+}
+function agregar(){
+      document.getElementById("formulario").style.display = "block";
+    document.getElementById("tabla").style.display = "none";
+    }
+   function ver(){
+      document.getElementById("formulario").style.display = "none";
+    document.getElementById("tabla").style.display = "block";
+    }
+
+    function driver(){
+      document.getElementById("formul").style.display = "block";
+    document.getElementById("list").style.display = "none";
+    }
+   function list(){
+      document.getElementById("formul").style.display = "none";
+    document.getElementById("list").style.display = "block";
     }

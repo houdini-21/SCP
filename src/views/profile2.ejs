@@ -2,10 +2,12 @@
 <html>
 <head>
 	<% include partials/head %>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 	<title>SCP - Panel de control</title>
+	
 </head>
 <body>
-
+	<div id="page-loader"><span class="preloader-interior"></span></div>
 	<section id="home" class="scrollspy">
 		<% include partials/navbar %>
 		<div class="row">
@@ -26,7 +28,7 @@
 			<div class="col l1"></div>
 			<div class="col l3">
 				<div class="card">
-					<div class="card-image waves-effect waves-block waves-light">
+					<div class="card-image waves-effect wav`es-block waves-light">
 						<center>
 							<a href="#crear"><i class="material-icons deep-cyan">create</i></a>
 						</center>
@@ -51,11 +53,10 @@
 			</div>
 		</div>
 	</section>
-	<!------------------------------------------------------- scrollspy------------------------------------------->
+	
 	<div class="parallax-container">
 		<div class="parallax"><img src="conductor.jpg"></div>
 	</div>
-	<!-----------------------------------------------------parallax --------------------------------------->
 	<section id="conductores" class="scrollspy">
 		<div class="row" id="base">
 			<div class="col l1"></div>
@@ -66,206 +67,249 @@
 					</center>
 					<div class="card-content" id="large">
 						<h5 style="text-align: center;">Conductores</h5>
-						<a class="waves-effect waves-light btn colors" id="equip">Equipos</a>
-
-						<a class="waves-effect waves-light btn colors" id="ruta">Rutas</a>
-
-						<a class="waves-effect waves-light btn colors" id="hora">Horarios</a>
-
+						<a class="waves-effect waves-light btn colors" id="ruta" onclick="driver()">Agregar</a>
+						<a class="waves-effect waves-light btn colors" id="ruta" onclick="list()">Ver lista</a>
 					</div>			
 				</div>
 			</div>
-			<!--------------------------------------tabs contend----------------------------------------------->
 			
 			<div class="col l8">
-
-				<div class="slider-for">
-					<div>
-						<img src="https://img00.deviantart.net/51a4/i/2016/338/b/2/rin__shelter__minimalist_wallpaper_by_slezzy7-daqkqbz.png"/>
-					</div>
-					<div>
-						<img src="https://images8.alphacoders.com/752/thumb-1920-752346.jpg"/>
-					</div>
-					<div>
-						<img src="https://images8.alphacoders.com/467/thumb-1920-467850.jpg"/>
-					</div>
-					<div>
-						<img src="https://stmed.net/sites/default/files/alice%3A-madness-returns-hd-wallpapers-32730-4797108.png"/>
-					</div>
-					<div>
-						<img src="https://i.ytimg.com/vi/0WnxZjlyKqM/maxresdefault.jpg"/>
-					</div>
-				</div>
-
-
-				<div class="slider-nav">
-					<div id="madness">
-						<img src="https://img00.deviantart.net/51a4/i/2016/338/b/2/rin__shelter__minimalist_wallpaper_by_slezzy7-daqkqbz.png"/>
-					</div>
-					<div>
-						<img src="https://images8.alphacoders.com/752/thumb-1920-752346.jpg"/>
-					</div>
-					<div>
-						<img src="https://images8.alphacoders.com/467/thumb-1920-467850.jpg"/>
-					</div>
-					<div>
-						<img src="https://stmed.net/sites/default/files/alice%3A-madness-returns-hd-wallpapers-32730-4797108.png"/>
-					</div>
-					<div>
-						<img src="https://i.ytimg.com/vi/0WnxZjlyKqM/maxresdefault.jpg"/>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</section>
-	<!-----------------------------------------------------parallax ----------------------------------------------->
-	<div class="parallax-container">
-		<div class="parallax"><img src="editar.jpg"></div>
-	</div>
-	<!-----------------------------------------------------parallax ----------------------------------------------->
-	<section id="crear" class="scrollspy">
-		<div class="row" id="base">
-			<div class="col l1"></div>
-			<div class="col l3" id="large">
-				<div data-aos="fade-up">
-					<center>
-						<i class="material-icons deep-cyan-face2">create</i>
+				<div id="formul">
+					<div class="row">
+						<center>
+							<div class="tipe">
+								<h5 style="text-align: center;">Agregar conductor</h5>
+								<form class="col s12 login-form" action="/add2" method="post">
+									<div class="row">
+										<div class="row">
+											<div class="input-field col s12">
+												<input type="text" name="nombrecon">
+												<label for="Nombre">Nombre</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="input-field col s12">
+												<input type="number" name="DUI">
+												<label for="DUI">DUI</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="input-field col s12">
+												<input type="date" name="fechainit">
+												<label for="Fecha"></label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="input-field col s12">
+												<input type="number" name="telefono">
+												<label for="N° Telefono">Telefono</label>
+											</div>
+										</div>
+										<button class="btn waves-effect waves-light btn-login" type="submit">Agregar</button>
+									</div>   
+								</form>
+							</div>
+						</div>
 					</center>
-					
-					<div class="card-content" id="large">
-						<h5 style="text-align: center;">Editar rutas</h5>
-						<a class="waves-effect waves-light btn colors" id="ruta" href="/agregar">Agregar</a>
 
-						<a class="waves-effect waves-light btn colors" id="ruta">Eliminar</a>
-
-						<a class="waves-effect waves-light btn colors" id="equip">Actualizar</a>
-
-					</div>			
 				</div>
+
+				<div id="list">
+
+					<table>
+						<thead>
+							<tr>
+								<th>N°</th>
+								<th>Nombre</th>
+								<th>DUI</th>
+								<th>Fecha de inicio</th>
+								<th>Telefono</th>
+								<th> </th>
+							</tr>
+						</thead>
+						<tbody>
+							<% for(var i=0; i < tasks2.length; i++) { %>
+							<tr>
+								<td><%= i + 1%></td>
+								<td><strong><%= tasks2[i].nombrecon %></strong></td>
+								<td><%= tasks2[i].DUI %></td>
+								<td><%= tasks2[i].fechainit %></td>
+								<td><%= tasks2[i].telefono %></td>
+								<td>
+									<a href="/delete2/<%= tasks2[i]._id %>">
+										<i class="material-icons delete">delete_sweep</i>
+									</a>
+									<a href="/edit2/<%= tasks2[i]._id %>"><i class="material-icons create">create</i>
+									</a>
+								</td>
+							</tr>
+							<% } %>
+						</tbody>
+					</table>
+				</div>	
 			</div>
-			<!--------------------------------------tabs contend----------------------------------------------->
 			
-			<div class="col l8">
-	
-				<div class="sliderfor">
-					<div>
-						<img src="https://img00.deviantart.net/51a4/i/2016/338/b/2/rin__shelter__minimalist_wallpaper_by_slezzy7-daqkqbz.png"/>
-					</div>
-					<div>
-						<img src="https://images8.alphacoders.com/752/thumb-1920-752346.jpg"/>
-					</div>
-					<div>
-						<img src="https://images8.alphacoders.com/467/thumb-1920-467850.jpg"/>
-					</div>
-					<div>
-						<img src="https://stmed.net/sites/default/files/alice%3A-madness-returns-hd-wallpapers-32730-4797108.png"/>
-					</div>
-					<div>
-						<img src="https://i.ytimg.com/vi/0WnxZjlyKqM/maxresdefault.jpg"/>
-					</div>
-				</div>
-
-
-				<div class="slidernav">
-					<div>
-			<img src="https://img00.deviantart.net/51a4/i/2016/338/b/2/rin__shelter__minimalist_wallpaper_by_slezzy7-daqkqbz.png"/>
-					</div>
-					<div>
-						<img src="https://images8.alphacoders.com/752/thumb-1920-752346.jpg"/>
-					</div>
-					<div>
-						<img src="https://images8.alphacoders.com/467/thumb-1920-467850.jpg"/>
-					</div>
-					<div>
-						<img src="https://stmed.net/sites/default/files/alice%3A-madness-returns-hd-wallpapers-32730-4797108.png"/>
-					</div>
-					<div>
-						<img src="https://i.ytimg.com/vi/0WnxZjlyKqM/maxresdefault.jpg"/>
-					</div>
-				</div>
-
-			</div>
+		</section>
+		
+		<div class="parallax-container">
+			<div class="parallax"><img src="editar.jpg"></div>
 		</div>
+		
+		<section id="crear" class="scrollspy">
+			<div class="row" id="base">
+				<div class="col l1"></div>
+				<div class="col l3" id="large">
+					<div data-aos="fade-up">
+						<center>
+							<i class="material-icons deep-cyan-face2">create</i>
+						</center>
 
-	</section>
-	<!-----------------------------------------------------parallax ----------------------------------------------->
-	<div class="parallax-container">
-		<div class="parallax"><img src="auto.jpg"></div>
-	</div>
-	<!-----------------------------------------------------parallax ----------------------------------------------->
-	<section id="bus" class="scrollspy">
-		<div class="row" id="base">
-			<div class="col l1"></div>
-			<div class="col l3" id="large">
-				<div data-aos="fade-up">
-					<center>
-						<i class="material-icons deep-cyan-face2">directions_bus</i>
-					</center>
-					<div class="card-content" id="large">
-						<h5 style="text-align: center;">Equipos de autobus</h5>
-						<a class="waves-effect waves-light btn colors" id="conductor">Conductores</a>
-
-						<a class="waves-effect waves-light btn colors" id="ruta">Rutas</a>
-
-						<a class="waves-effect waves-light btn colors" id="hora">Horarios</a>
-
-					</div>			
+						<div class="card-content" id="large">
+							<h5 style="text-align: center;">Editar rutas</h5>
+							<a class="waves-effect waves-light btn colors" id="ruta" onclick="agregar()">Agregar</a>
+							<a class="waves-effect waves-light btn colors" id="ruta" onclick="ver()">ver lista</a>
+						</div>			
+					</div>
 				</div>
-			</div>
-			<!--------------------------------------tabs contend----------------------------------------------->
+				
+				<div class="col l8">
+					<div id="formulario">
+						<div class="row">
+							<center>
+								<div class="tipo">
+									<h5 style="text-align: center;">Agregar Ruta</h5>
+									<form class="col s12 login-form" action="/add" method="post">
+										<div class="row">
+											<div class="row">
+												<div class="input-field col s12">
+													<input type="text" name="title">
+													<label for="placa">Placa</label>
+												</div>
+											</div>
+											<div class="row">
+												<div class="input-field col s12">
+													<input type="text" name="title2">
+													<label for="conductor">Conductor</label>
+												</div>
+											</div>
+											<div class="row">
+												<div class="input-field col s12">
+													<input type="number" name="description">
+													<label for="Equipo">Equipo</label>
+												</div>
+											</div>
+											<button class="btn waves-effect waves-light btn-login" type="submit">Agregar</button>
+										</div>   
+									</form>
+								</div>
+							</div>
+						</center>
+
+					</div>
+
+					<div id="tabla">
+
+						<table>
+							<thead>
+								<tr>
+									<th>N°</th>
+									<th>Placa</th>
+									<th>Conductores</th>
+									<th>Numero de equipo</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<% for(var i=0; i < tasks.length; i++) { %>
+								<tr>
+									<td><%= i + 1%></td>
+									<td><strong><%= tasks[i].title %></strong></td>
+									<td><%= tasks[i].title2 %></td>
+									<td><%= tasks[i].description %></td>
+									<td>
+										<a href="/delete/<%= tasks[i]._id %>">
+											<i class="material-icons delete">delete_sweep</i>
+										</a>
+										<a href="/edit/<%= tasks[i]._id %>"><i class="material-icons create">create</i>
+										</a>
+									</td>
+								</tr>
+								<% } %>
+							</tbody>
+						</table>
+					</div>	
+				</div>
+			</div>  
+		</section>
+		
+		<div class="parallax-container">
+			<div class="parallax"><img src="auto.jpg"></div>
+		</div>
+		
+		<section id="bus" class="scrollspy">
+			<div class="row" id="base">
+				<div class="col l1"></div>
+				<div class="col l3" id="large">
+					<div data-aos="fade-up">
+						<center>
+							<i class="material-icons deep-cyan-face2">directions_bus</i>
+						</center>
+						<div class="card-content" id="large">
+							<h5 style="text-align: center;">Equipos de autobus</h5>
+							<a class="waves-effect waves-light btn colors" id="conductor">Conductores</a>
+
+							<a class="waves-effect waves-light btn colors" id="ruta">Rutas</a>
+
+							<a class="waves-effect waves-light btn colors" id="hora">Horarios</a>
+
+						</div>			
+					</div>
+				</div>
+				
+				<div class="col l8">
+					<div id="table">
+
+						<table>
+							<thead>
+								<tr>
+									<th>Nombre conductor</th>
+									<th>Direccion</th>
+									<th>Total Pasajeros</th>
+									<th>Total Colectado</th>
+									
+								</tr>
+							</thead>
+							<tbody>
+								
+								<tr>
+									<td id="nombre"></td>
+									<td id="direccion"><strong> </strong></td>
+									<td id="totalpasa"> </td>
+									<td id="totalca"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>	
+				</div>
+			</section>
 			
-			<div class="col l8">
-
-				<div class="sliderfor2">
-					<div>
-						<img src="https://img00.deviantart.net/51a4/i/2016/338/b/2/rin__shelter__minimalist_wallpaper_by_slezzy7-daqkqbz.png"/>
-					</div>
-					<div>
-						<img src="https://images8.alphacoders.com/752/thumb-1920-752346.jpg"/>
-					</div>
-					<div>
-						<img src="https://images8.alphacoders.com/467/thumb-1920-467850.jpg"/>
-					</div>
-					<div>
-						<img src="https://stmed.net/sites/default/files/alice%3A-madness-returns-hd-wallpapers-32730-4797108.png"/>
-					</div>
-					<div>
-						<img src="https://i.ytimg.com/vi/0WnxZjlyKqM/maxresdefault.jpg"/>
-					</div>
-				</div>
-
-
-				<div class="slidernav2">
-					<div id="madness">
-						<img src="https://img00.deviantart.net/51a4/i/2016/338/b/2/rin__shelter__minimalist_wallpaper_by_slezzy7-daqkqbz.png"/>
-					</div>
-					<div>
-						<img src="https://images8.alphacoders.com/752/thumb-1920-752346.jpg"/>
-					</div>
-					<div>
-						<img src="https://images8.alphacoders.com/467/thumb-1920-467850.jpg"/>
-					</div>
-					<div>
-						<img src="https://stmed.net/sites/default/files/alice%3A-madness-returns-hd-wallpapers-32730-4797108.png"/>
-					</div>
-					<div>
-						<img src="https://i.ytimg.com/vi/0WnxZjlyKqM/maxresdefault.jpg"/>
-					</div>
-				</div>
+			<div class="fixed-action-btn">
+				<a class="btn-floating btn-large waves-effect waves-light arrow" href="#home">
+					<i class="material-icons deep">keyboard_arrow_up</i>
+				</a>
 			</div>
-		</div>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzkA0S-zkXifVJyC3R065vTCjtel2fsDg&libraries=visualization&callback=initMap">
+    </script>
+			<script type="text/javascript" src="grafica.js"></script>
+			<% include partials/footer %>
+			<script>
 
-	</div>
-</section>
-<!-------------------------------------------------------------- pinbutton------------------------------------------------>
-<div class="fixed-action-btn">
-	<a class="btn-floating btn-large waves-effect waves-light arrow" href="#home">
-		<i class="material-icons deep">keyboard_arrow_up</i>
-	</a>
-</div>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-<script type="text/javascript" src="grafica.js"></script>
-<% include partials/footer %>
-</body> 
-</html>
+				$(window).load(function(){
+					$('#page-loader').fadeOut(100);
+
+				});
+				
+			</script>
+		</body> 
+		</html>

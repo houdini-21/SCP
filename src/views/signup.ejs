@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>SCP - Login</title>
   <body id="fondo">
+
     <div id="page-loader"><span class="preloader-interior"></span></div>
     <% include partials/head %>
   </head>
@@ -13,7 +14,7 @@
        <div class="tip">
         <img src="/scp.png" class="img-login">
         <h5 style="text-align: center;">Crear una cuenta</h5>
-        <form class="col s12 login-form" action="/signup" method="post">
+        <form class="col s12 login-form" action="/signup" method="post" id="formulario">
           <% if (message.length > 0) { %>
           <div class="alert">
             <%= message %>
@@ -28,12 +29,17 @@
          </div>
          <div class="row">
           <div class="input-field col s12">
-            <input type="password" name="password" class="validate">
-            <label for="password">Password</label>
+            <input type="password" name="password" id="pass1" value="" class="validate" onInput="validarInput()">
+            <label for="password">Contraseña</label>
           </div>
         </div>
-        <button class="btn waves-effect waves-light btn-login" type="" onclick="lol()">Crear cuenta</button>
-
+         <div class="row">
+          <div class="input-field col s12">
+            <input type="password" name="confirmpassword" id="pass2" value="" class="validate"onInput="validarInput2()">
+            <label for="confirmpassword"> Confirmar Contraseña</label>
+          </div>
+        </div>
+        <button class="btn waves-effect waves-light btn-login" type="submit" value="enviar datos" name="send" id="send" disabled>Crear cuenta</button>
         <div class="login-box">
           Tienes una cuenta? <a href="/login">Iniciar sesion</a>
         </div>
@@ -47,10 +53,12 @@
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script>
+
   $(window).load(function(){
     $('#page-loader').fadeOut(500);
 
   });
+
 </script>
 <script type="text/javascript" src="/funnciones.js"></script>
 </body>

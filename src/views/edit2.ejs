@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<% include partials/head %>
+	<title>SCP - Editar Conductor</title>
+</head>
+<body>
+    <div id="page-loader"><span class="preloader-interior"></span></div>
+	<% include partials/navbar %>
+	<center>
+<div class="tock">
+		<div class="tipo">
+			<h5 style="text-align: center;">Editar conductor</h5>
+			<form class="col s12 login-form" action="/edit2/<%= task2._id %>" method="post">
+		<div class="row">
+										<div class="row">
+											<div class="input-field col s12">
+												<input type="text" name="nombrecon" value="<%= task2.nombrecon %>">
+												<label for="Nombre">Nombre</label>
+											</div>
+										</div>										</div>
+										<div class="row">
+											<div class="input-field col s12">
+												<input type="number" name="DUI" value="<%= task2.DUI %>">
+												<label for="DUI">DUI</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="input-field col s12">
+												<input type="date" name="fechainit" value="<%= task2.fechainit %>">
+												<label for="Fecha"></label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="input-field col s12">
+												<input type="number" name="telefono" value="<%= task2.telefono %>">
+												<label for="N° Telefono">Telefono</label>
+											</div>
+										</div>
+										<button class="btn waves-effect waves-light btn-login" type="submit">Actualizar</button>
+									</div>    
+			</form>
+		</div>
+	</div>
+
+</center>
+</body>
+<% include partials/footer %>
+		<script>
+
+  $(window).load(function(){
+    $('#page-loader').fadeOut(100);
+
+  });
+ 
+</script>
+</html>

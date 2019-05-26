@@ -6953,7 +6953,7 @@ nav .brand-logo {
 .material-icons.deep-cyan-coin {
   color: #45A296;
   font-size: 220px;
-  padding-bottom: 120px;
+  padding-bottom: 150px;
   padding-top: 115px; }
 
 #informacion {
@@ -6967,8 +6967,7 @@ nav .brand-logo {
   font-size: 45px; }
 
 #pasajeros {
-  background-color: #007C6C;
-  padding-bottom: 5px; }
+  background-color: #007C6C; }
 
 #historial {
   background-color: #007C6C;
@@ -7238,6 +7237,15 @@ input[type=password]:not(.browser-default):focus:not([readonly]) {
 #conductores {
   background-color: #007C6C; }
 
+#pasajeros {
+  background-color: #007C6C; }
+
+#dinero {
+  background-color: #007C6C; }
+
+#historial {
+  background-color: #007C6C; }
+
 #crear {
   background-color: #007C6C; }
 
@@ -7428,29 +7436,21 @@ input[type=password]:not(.browser-default):focus:not([readonly]) {
   text-align: center; }
 
 #conductor {
-  margin-bottom: 20px;
-  padding-left: 70px;
-  padding-right: 70px; }
+  margin-bottom: 20px; }
 
 #ruta {
-  margin-bottom: 20px;
-  padding-left: 103px;
-  padding-right: 103px; }
+  margin-bottom: 20px; }
 
 #hora {
-  margin-bottom: 20px;
-  padding-left: 86px;
-  padding-right: 86px; }
+  margin-bottom: 20px; }
 
 #equip {
-  margin-bottom: 20px;
-  padding-left: 92px;
-  padding-right: 92px; }
+  margin-bottom: 20px; }
 
 #agrega {
   background-color: #007C6C; }
 
-#formu {
+#tipe {
   background-color: #fff; }
 
 .material-icons.deep-cyan-create {
@@ -7471,3 +7471,77 @@ input[type=password]:not(.browser-default):focus:not([readonly]) {
 #bot:hover {
   background-color: #bdbdbd;
   color: #000; }
+
+.tipo {
+  width: 390px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 77px 55px 33px 55px;
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1); }
+
+.tock {
+  padding-top: 40px;
+  padding-bottom: 40px; }
+
+#main-container {
+  margin: 150px auto;
+  width: 600px; }
+
+table {
+  background-color: white;
+  text-align: left;
+  border-collapse: collapse;
+  width: 100%; }
+
+th, td {
+  padding: 20px; }
+
+thead {
+  background-color: #246355;
+  border-bottom: solid 5px #0F362D;
+  color: white; }
+
+tr:nth-child(even) {
+  background-color: #ddd; }
+
+tr:hover td {
+  background-color: #369681;
+  color: white; }
+
+.create {
+  color: #007C6C;
+  padding: 5px; }
+
+.plus {
+  color: #5F7BA1;
+  padding: 5px; }
+
+.delete {
+  color: #F15858;
+  padding: 5px; }
+
+#formulario {
+  padding-top: 40px; }
+
+.tipe {
+  width: 390px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 10px 40px 10px 40px;
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1); }
+
+#test-swipe-1, #test-swipe-5, #test-swipe-10, #test-swipe-11, #test-swipe-12 {
+  padding-top: 40px; }
+
+#push {
+  padding-left: 300px; }

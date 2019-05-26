@@ -1,0 +1,20 @@
+var cars_Ref = firebase.database().ref('/');
+
+            // this event will be triggered when a new object will be added in the database...
+            cars_Ref.on('child_added', function (data) {
+                cars_count++;
+                AddCar(data);
+            });
+
+            // this event will be triggered on location change of any car...
+            cars_Ref.on('child_changed', function (data) {
+                markers[data.key].setMap(null);
+                AddCar(data);
+            });
+
+            // If any car goes offline then this event will get triggered and we'll remove the marker of that car...  
+            cars_Ref.on('child_removed', function (data) {
+                markers[data.key].setMap(null);
+                cars_count--;
+                document.getElementById("cars").innerHTML = cars_count;
+            });

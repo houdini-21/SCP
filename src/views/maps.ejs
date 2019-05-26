@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<% include partials/head %>
+			<% include partials/navbar %>
+		<title>SCP - Mapa en tiempo real</title>
+	<style>
+	#map {
+		height: 100%;
+	}
+
+	html, body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	#over_map {
+		  					position: absolute;
+                top: 80px;
+                left: 81%;
+                z-index: 99;
+                background-color: #ccffcc;
+                padding: 10px;
+	}
+	</style>
+		</head>
+	<body>
+	
+
+	<div id="map"></div>
+	<div id="over_map">
+            <div>
+                <span>Buses en circulacion: </span><span id="cars">0</span>
+            </div>
+        </div>
+
+
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+	<script type="text/javascript" src="/firebase.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzkA0S-zkXifVJyC3R065vTCjtel2fsDg&callback=initMap">
+	</script>
+	<% include partials/footer %>
+
+</body>
+</html>

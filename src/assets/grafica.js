@@ -23,7 +23,7 @@ Highcharts.chart('ganancias', {
     }
   },
   title: {
-    text: 'Ganancias del dia de hoy'
+    text: 'Flujo de efectivo'
   },
   xAxis: {
     type: 'datetime',
@@ -31,7 +31,7 @@ Highcharts.chart('ganancias', {
   },
   yAxis: {
     title: {
-      text: 'Value'
+      text: 'Dolares'
     },
     plotLines: [{
       value: 0,
@@ -53,14 +53,14 @@ Highcharts.chart('ganancias', {
     enabled: false
   },
   series: [{
-    name: 'Ganancias',
+    name: 'Pasajeros',
     data: (function () {
       // generate an array of random data
       var data = [],
       time = (new Date()).getTime(),
       i;
 
-      for (i = -23; i <= 0; i += 1) {
+      for (i = -19; i <= 0; i += 1) {
         data.push({
           x: time + i * 1000,
           y: Math.random()
@@ -98,7 +98,7 @@ Highcharts.chart('pasajeros1', {
   },
   yAxis: {
     title: {
-      text: 'Value'
+      text: 'Pasajeros'
     },
     plotLines: [{
       value: 0,
@@ -139,6 +139,71 @@ Highcharts.chart('pasajeros1', {
 });
 
 Highcharts.chart('historial1', {
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: 'Total de Ganancias en la'
+    },
+    subtitle: {
+        text: 'Semana'
+    },
+    xAxis: {
+        categories: ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado']
+    },
+    yAxis: {
+        title: {
+            text: 'Dolares'
+        }
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: false
+        }
+    },
+    series: [{
+        name: 'Mes: Diciembre',
+        data: [7000, 6900, 9555, 8000, 6700, 0000]
+    }]
+});
+Highcharts.chart('historial2', {
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: 'Total Ganancias por'
+    },
+    subtitle: {
+        text: 'Meses'
+    },
+    xAxis: {
+        categories: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+    },
+    yAxis: {
+        title: {
+            text: 'Dolares'
+        }
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: false
+        }
+    },
+    series: [{
+        name: '2018',
+        data: [70000, 69000, 95000, 14500, 18400, 21500, 25002, 26500, 23003, 18300, 13900, 96000]
+    }, {
+        name: '2017',
+        data: [39000, 42000, 57000, 85000, 11900, 15200, 17000, 16000, 14002, 10300, 66000, 48000]
+    }]
+});
+Highcharts.chart('historial3', {
 
   title: {
     text: 'Historial de Ganancias'
@@ -164,25 +229,13 @@ Highcharts.chart('historial1', {
       label: {
         connectorAllowed: false
       },
-      pointStart: 2010
+      pointStart: 2017
     }
   },
 
   series: [{
-    name: 'Ruta 205',
-    data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-  }, {
-    name: 'Ruta 307',
-    data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
-  }, {
-    name: 'Ruta 267',
-    data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
-  }, {
-    name: 'Ruta 89',
-    data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-  }, {
-    name: 'Ruta 53',
-    data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
+    name: 'Ganancias Totales',
+    data: [4393467, 5250377, 5717700, 6965800, 9703100, 11993100, 13713300, 15417575]
   }],
 
   responsive: {
